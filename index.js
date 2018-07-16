@@ -6,6 +6,9 @@ let ftop= 100;
 let overlayZIndex= -1;
 let timerIndex = Number();
 let direction = '';
+let presentEvent='1';
+let previousEvent='';
+let pauseCount = 0;
 
 //selecting the element for adding event listener
 let playField = document.getElementsByClassName('playField')[0];
@@ -19,7 +22,9 @@ console.log(playField,overlay,retryButton,Food,Head,backgroundMain);
 //adding event listener
 // playField[0].addEventListener('keyPress',(event)=>onKeypressed(event));
 
-backgroundMain.addEventListener('keypress', event => onKeyPressed(event));
+backgroundMain.addEventListener('keydown', event => {presentEvent='keydown';onKeyPressed(event)});//onKeyPressed(event));
+// backgroundMain.addEventListener('keypress', event => console.log('keypress'));// onKeyPressed(event));
+backgroundMain.addEventListener('keyup', event => {presentEvent='keyup'; onKeyPressed(event)});// onKeyPressed(event));
 retryButton.addEventListener('click',()=>overlayDeactivate());
 
 //changing the attributes
@@ -29,34 +34,56 @@ retryButton.addEventListener('click',()=>overlayDeactivate());
 
 
 const onKeyPressed = (event) => {
-    // console.log(event);
-    clearInterval(timerIndex);
+    event.preventDefault()
+    console.log(event);
+    event.preventDefault();
+    if(previousEvent===presentEvent){
+        //do nothing
+    }
+    else{
+        clearInterval(timerIndex);
 
-    if (event.key === 'd') {
-        clearInterval(timerIndex);
-        OnRightKeyPress()
+        if (event.key === 'ArrowRight') {
+            clearInterval(timerIndex);
+            OnRightKeyPress()
+        }
+        else if (event.key === 'ArrowLeft') {
+            clearInterval(timerIndex);
+            OnLeftKeyPress()
+        }
+        else if (event.key === 'ArrowUp') {
+            clearInterval(timerIndex);
+            OnUpKeyPress()
+        }
+        else if (event.key === 'ArrowDown') {
+            clearInterval(timerIndex);
+            OnDownKeyPress()
+        }
+        previousEvent = presentEvent;
+        // console.log(Head.style.left, Head.style.top, Food.style.left, Food.style.top)
+        console.log(presentEvent,previousEvent);
     }
-    else if (event.key === 'a') {
-        clearInterval(timerIndex);
-        OnLeftKeyPress()
-    }
-    else if (event.key === 'w') {
-        clearInterval(timerIndex);
-        OnUpKeyPress()
-    }
-    else if (event.key === 's') {
-        clearInterval(timerIndex);
-        OnDownKeyPress()
-    }
-    console.log(Head.style.left, Head.style.top, Food.style.left, Food.style.top)
 }
+const pauseP=() =>{
+    if(pauseCount ===0){
+    clearInterval(timerIndex);
+    pauseCount = 1;}
+    else{
+        pauseCount=0;
+        if(direction ==='right'){OnRightKeyPress()}
+        else if (direction === 'left') {OnLeftKeyPress()}
+        else if (direction === 'up') {OnUpKeyPress()}
+        else if (direction === 'down') {OnDownKeyPress()}
 
+
+    }
+}
 
 const OnRightKeyPress = () => {
     direction = 'right';
     timerIndex = setInterval(() => {
         didSnakeEat(Head.style.left, Head.style.top, Food.style.left, Food.style.top);
-        if (sleft + 20 > 1240) {
+        if (sleft + 20 > 1220) {
             clearInterval(timerIndex);
             Head.style.left = "1240px"; 
             overlay.setAttribute('style',`z-index:3`);
@@ -68,7 +95,7 @@ const OnRightKeyPress = () => {
             sleft=sleft+20
             // console.log('l',Head.style.left);
         }
-    }, 50);
+    }, 75);
 
 }
 const OnLeftKeyPress = () => {
@@ -86,7 +113,7 @@ const OnLeftKeyPress = () => {
             sleft=sleft - 20 ;
             // console.log('l',Head.style.left);
         }
-    }, 50);
+    }, 75);
 
 }
 const OnUpKeyPress = () => {
@@ -104,13 +131,13 @@ const OnUpKeyPress = () => {
             stop = stop-20;
             // console.log('t',Head.style.top)
         }
-    }, 50);
+    }, 75);
 }
 const OnDownKeyPress = () => {
     direction = 'down';
     timerIndex = setInterval(() => {
         didSnakeEat(Head.style.left, Head.style.top, Food.style.left, Food.style.top);
-        if (stop + 20 > 500) {
+        if (stop + 20 > 480) {
             clearInterval(timerIndex);
             // Head.setAttribute('style', `top:500`);
             Head.style.top="500px";
@@ -121,7 +148,7 @@ const OnDownKeyPress = () => {
             stop =stop + 20;
             // console.log('t',Head.style.top)
         }
-    }, 50);
+    }, 75);
 }
 
 

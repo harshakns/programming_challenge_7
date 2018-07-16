@@ -1,5 +1,6 @@
 .backgroundMain{
     background-color: red;
+    position: absolute;
     width:1350px;
     height:650px;
 

@@ -8,23 +8,99 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./index.css" />
 </head>
 <body>
-    <div class='backgroundMain' tabindex="1" >
-        <div class='overlay'>
-            <div class='alertBox'>
+    <div id='backgroundMain' tabindex="1" >
+        <div id='scoreBoard'>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div><h3 id = 'highScore' style='font-family:fontDiner'>High Score:</h3></div>
+            <div><h3 id = 'score' style='font-family:fontDiner'>Score:</h3></div> 
+        </div>
+        <div id='overlay'>
+            <div id='alertBox'>
                 <div>
-                    <h1>you have lost the game</h1>
+                    <h3 style="font-family:fontDiner;text-align: center">you lost!!!</h3>
+                    <br>
+                    <h3 id='reason' style="font-family:firacode;text-align: center;"></h3>
+                    <br>
+                    <h3 id='achievement' style="font-family:pressStart;text-align: center;"></h3>
+                    <br>
+                    <h3 id ='presentScore' style="font-family:firacode;text-align: center;"></h3>
                 </div>
-                <button class='retryButton'>
-                    <h3>Retry</h3>
+                <br>
+                <button id='retryButton'>
+                    <h3 style='font-family:fontDiner;font-size:30px'>Retry</h3>
                 </button>
             </div>
         </div>
+        <div id='intro'>
+            <div id='introBox'>
+                <div id='introCol1'>
+                    <span><h1 style="font-family:fontDiner;font-size:40px">SNAKE GAME</h1></span><span><h3><em>Retro Evolved</em></h3></span>
+                    <p>This is our same old snake game made with html,css and javascript so it runs on your browser without any installation.</p>
+                    <h3 style="font-family:fontDiner;">The rules are simple</h3>
+                    <ul>
+                        <li class='list'>Eat the food and keep growing to reach maximum score.</li>
+                        <li class='list'>Don't eat your own body.</li>
+                    </ul>
+                    <br>
+                    <p>Enjoy the game!!!!</p>
+                    <br>
+                </div>
+                <div id='introCol2'>
+                    <h3 style='font-family:fontDiner'>Controls</h3>
+                    <p>
+                        The controls are arrow keys for the movement.
+                    </p>
+                    <br>
+                    <h3 style='font-family:fontDiner'>Options</h3>
+                    <ul>
+                        <li class='list'>For best experience play in full screen.</li>
+                        <li class='list'>snake growth   
+                            <select id='snakeGrowth' style='font-family:firacode;text-align: center'>
+                                <option value='5' selected="selected" >Easy</option>
+                                <option value='10'>Medium</option>
+                                <option value='15'>Hard</option>
+                            </select>
+                        </li>
+                        <li class='list'>snake speed 
+                            <select id='snakeSpeed' style='font-family:firacode;text-align: center'>
+                                <option value='75'>Noob</option>
+                                <option value='65' selected="selected">Normal</option>
+                                <option value='55'>High</option>
+                                <option value='45'>Higher</option>
+                                <option value='35'>Highest</option>
+
+                            </select>
+                        </li>
+                    </ul>
+                    <br>
+                    <div>
+                    <button id ='playyes' style='font-family:fontDiner;font-size:18px'>PLAY</button>
+                    <button id = 'playno' style='font-family:firacode;font-size:14px' onclick="location.href='https://www.wikihow.com/Get-over-Your-Fear-of-Snakes'">I am afraid of snakes</button>
+                    </div>
+                    <br>
+                    <p>Don't forget to  share this game with your friends</p>
+                    <br>
+                </div>
+            </div>
+        </div>
     
-        <div class='playField'>
+        <div id='playField'>
             <div class='Food' id='Food'>
             </div>
             <div class='Head' id='Head'>
             </div>
+        </div>
+        <div id='credits'>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div><h5>Made with html,css and javascript by <em><a href='https://github.com/harshakns'> harshakns</a></em></h5>
+            </div>
+            <div></div>
         </div>
     </div>
 

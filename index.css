@@ -1,77 +1,203 @@
+@font-face {
+font-family: fontDiner;
+src: url('/fonts/FontdinerSwanky-Regular.ttf');
+}
+@font-face {
+font-family: firacode;
+src: url('/fonts/FiraSansCondensed-Medium.ttf');
+}
+@font-face {
+font-family: pressStart;
+src: url('/fonts/PressStart2P-Regular.ttf');
+}
+
+
+
 *{
     padding:0px;
     margin:0px;
 }
 
-.backgroundMain{
-    background-color: red;
+#backgroundMain{
+    background-color:rgb(249,38,114);
     position: fixed;
     width:100%;
     height:100%;
-    border:5px solid black;
+    /* border:5px solid black; */
     margin:0px;
     padding:0px;
 
 }
-.playField{
-    background-color:blue;
+#playField{
+    overflow: hidden;
+    background-color:rgb(39,40,34);
     position: absolute;
+    /* z-index:1; */
     top: 10%;
     left: 5%;
     width:1240px;
     height:500px;
 
 }
-.overlay{
+#overlay{
     position:absolute;
     z-index: -2;
-    width: 100%;
-    height:100%;
+    top:10%;
+    left:5%;
+    width: 1240px;
+    height:500px;
     display:flex;
     justify-content: center;
     align-content:center;
     align-items:center;
-    background-color:rgba(241, 241, 233, 0.40);
-    opacity: .5;
+    background-color:rgba(39,40,34, 0);
+    overflow: hidden;
 
 }
-.alertBox{
+#alertBox{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-content:center;
     align-items:center;
     width: 400px;
-    height: 200px;
-    background-color: blueviolet;
+    height: 300px;
+    background-color: rgb(249,38,114);
     border:1px;
-    border-radius: 20px;
 
 }
-.retryButton{
+#retryButton{
     width:150px;
     height:50px;
-    border:1px solid black;
-    border-radius: 2px;
-    background-color: brown;
+    border:1px solid rgb(39,40,34);
+    background-color: rgb(249,38,114);
 }
-.Head{
+#retryButton:hover{
+    background-color: rgb(39,40,34);
+    border:1px solid rgb(249,38,114);
+    color:rgb(249,38,114);
+
+}
+#Head{
     position: absolute;
+    z-index:3;
     top:20px;
     left:20px;
     width:20px;
     height:20px;
-    border:2px solid blue;
-    background-color:yellowgreen;
-    z-index: 2;
+    border:1px solid rgb(39,40,34);
+    background-color:rgb(126,226,46);
+    /* z-index: 2; */
 }
-.Food{
+#Food{
     position: absolute;
+    z-index: 1;
     top:100px;
     left:100px;
     width:20px;
     height:20px;
     /* border:2px solid blue; */
-    background-color: red;
-    box-shadow: 0px 0px 15px 5px rgba(255, 255, 190, .75)
+    background-color:rgb(225,79,93);
+    /* box-shadow: 0px 0px 15px 5px rgba(255, 255, 190, .75) */
 }
+
+#intro{
+    overflow: hidden;
+    position:absolute;
+    z-index:5;
+    top:10%;
+    left:5%;
+    width: 1240px;
+    height:500px;
+    display:flex;
+    background-color:rgba(39,40,34, 0);
+
+}
+
+#introBox{
+    font-family: firacode;
+    font-size:16px;
+    display:flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39,40,34, 100);
+    border:1px;
+    border-radius: 20px;
+    color: bisque;
+}
+#introCol1{
+    flex:1;
+    display:flex;
+    border: 2px solid rgb(249,38,114);
+    flex-direction: column;
+    align-items: center;
+    align-content:space-around;
+    justify-content: space-around;
+    padding:30px;
+}
+#introCol2{
+    flex:1;
+    display:flex;
+    border: 2px solid rgb(249,38,114);
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    padding:30px;
+}
+#playyes{
+    background-color:rgb(249,38,114);
+    width: 150px;
+    height:50px;
+    border:5px solid black;
+    border-radius: 2px;
+    padding:2px;
+}
+#playno{
+    padding:2px;
+    background-color: rgb(249,38,114);
+    width: 150px;
+    height:50px;
+    border:5px solid black;
+    border-radius: 2px;
+}
+#scoreBoard{
+    position: absolute;
+    left:0%;
+    top:2%;
+    width:100%;
+    height:25px;
+    display:flex;
+    justify-content: space-evenly
+}
+#credits{
+    position:absolute;
+    /* z-index :1; */
+    top: 95%;
+    left:0%;
+    width: 100%;
+    height: 30px;
+    display:flex;
+    justify-content: space-around;
+}
+
+#snakeGrowth{
+    background: rgb(249,38,114);
+    color: rgb(39,40,34);
+    width:80px;
+    height:25px;
+    border: 1px solid rgb(39,40,34);
+    text-align: center;
+}
+#snakeSpeed{
+    background:rgb(249,38,114);
+    color:rgb(39,40,34);
+    width:80px;
+    height:25px;
+    border: 1px solid rgb(39,40,34);
+    text-align: center;
+}
+.list{
+    margin:10px;
+}
+
